@@ -13,6 +13,7 @@ import {
   Text,
   View,
   Button,
+  Image
 } from 'react-native';
 
 import { StackNavigator } from 'react-navigation'
@@ -27,15 +28,22 @@ export default class Splash extends React.Component {
     title: 'Splash'
   };
   render() {
+
+    /* navigation controller*/
+    const { navigate } = this.props.navigation;
+
+    /* Three second timout for splash*/
+    setTimeout(function(){
+      navigate("Main");
+    }, 3000);
+
+    /*UI design*/
     return (
       <View style={styles.container}>
+        <Image source={require('.././assets/images/ic_launcher.png')} />
         <Text style={styles.welcome}>
           Top Sales
         </Text>
-        <Button
-          onPress={() => this.props.navigation.navigate("Main")}
-          title="Goto main"
-        />
       </View>
     );
   }
